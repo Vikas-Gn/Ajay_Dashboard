@@ -824,7 +824,7 @@ document.getElementById('forgotPasswordForm').addEventListener('submit', async (
         const response = await fetch('http://13.201.125.78:3002/api/forgot', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, newPassword, confirmNewPassword })
+            body: JSON.stringify({ email })
         });
         const data = await response.json();
         

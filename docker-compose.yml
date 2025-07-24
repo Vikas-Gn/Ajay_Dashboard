@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: admin123
       POSTGRES_DB: new_employee_db
     ports:
-      - "5404:5432"
+      - "5068:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -28,7 +28,7 @@ services:
       context: ./Backend
       dockerfile: Dockerfile
     ports:
-      - "3404:3404"
+      - "3002:3002"
     env_file:
       - ./Backend/server.env
     depends_on:
@@ -37,7 +37,7 @@ services:
     networks:
       - app_network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3404/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -48,7 +48,7 @@ services:
       context: ./Frontend/login
       dockerfile: Dockerfile
     ports:
-      - "8012:80"
+      - "9076:80"
     restart: unless-stopped
     networks:
       - app_network
@@ -59,7 +59,7 @@ services:
       context: ./Frontend/signup
       dockerfile: Dockerfile
     ports:
-      - "8013:80"
+      - "9077:80"
     restart: unless-stopped
     networks:
       - app_network
@@ -70,7 +70,7 @@ services:
       context: ./Frontend/forgot
       dockerfile: Dockerfile
     ports:
-      - "8010:80"
+      - "9075:80"
     restart: unless-stopped
     networks:
       - app_network
@@ -81,7 +81,7 @@ services:
       context: ./static-dashboard
       dockerfile: Dockerfile
     ports:
-      - "7999:80"
+      - "9074:80"
     restart: unless-stopped
     networks:
       - app_network

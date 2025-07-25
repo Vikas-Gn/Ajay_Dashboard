@@ -75,11 +75,11 @@ logger.info('Environment Configuration:', {
 });
 
 const allowedOrigins = [
-  'http://13.201.125.78:9074',
-  'http://13.201.125.78:9075',
-  'http://13.201.125.78:9076',
-  'http://13.201.125.78:9077',
-  'http://13.201.125.78:3002',
+  'http://65.2.34.70:9074',
+  'http://65.2.34.70:9075',
+  'http://65.2.34.70:9076',
+  'http://65.2.34.70:9077',
+  'http://65.2.34.70:3002',
   'http://127.0.0.1:5500',
   'http://127.0.0.1:5501',
   'http://127.0.0.1:5502',
@@ -115,7 +115,7 @@ const allowedOrigins = [
   'http://44.223.23.145:8028',
   'http://44.223.23.145:8042',
   'http://44.223.23.145:8032',
-  process.env.FRONTEND_URL || 'http://13.201.125.78:3002'
+  process.env.FRONTEND_URL || 'http://65.2.34.70:3002'
 ];
 
 app.use(cors({
@@ -909,8 +909,8 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3002;
 server.listen(PORT, '0.0.0.0', () => {
-  logger.info(`Server running on http://13.201.125.78:${PORT}`);
-  logger.info(`WebSocket server running on ws://13.201.125.78:${PORT}`);
+  logger.info(`Server running on http://65.2.34.70:${PORT}`);
+  logger.info(`WebSocket server running on ws://65.2.34.70:${PORT}`);
   logger.info(`Allowed CORS origins: ${allowedOrigins.join(', ')}`);
   logger.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
   logger.info(`Database config:`, {
